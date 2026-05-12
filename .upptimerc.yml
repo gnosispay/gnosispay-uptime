@@ -1,0 +1,43 @@
+# Change these first
+owner: gnosispay
+repo: gnosispay-uptime
+sites:
+  - name: "GnosisPay"
+    url: https://gnosispay.com/
+  - name: "GnosisPay API"
+    url: https://api.gnosispay.com/health
+  # - name: "GnosisPay API - DEV"
+  #   url: https://api.dev.gnosispay.com/health
+  # - name: "GnosisPay Testnet RPC"
+  #   method: POST
+  #   url: https://rpc.dev.gnosispay.network
+  #   headers: ["Content-Type: application/json"]
+  #   body: |
+  #     {
+  #       "method": "eth_blockNumber",
+  #       "params":[],
+  #       "id":1,
+  #       "jsonrpc":"2.0"
+  #     }
+  # - name: "GnosisPay Testnet Explorer"
+  #   url: https://explorer.dev.gnosispay.network
+  # - name: "GnosisPay TESTNET RPC"
+  #   method: POST
+  #   url: https://rpc.testnet.gnosispay.network
+  #   headers: ["Content-Type: application/json"]
+  #   body: |
+  #     {
+  #       "method": "eth_blockNumber",
+  #       "params":[],
+  #       "id":1,
+  #       "jsonrpc":"2.0"
+  #     }
+  
+
+status-website:
+  name: GnosisPay
+  introTitle: "**GnosisPay**"
+  introMessage: Check the availability for GnosisPay services
+  cname: status.gnosispay.com
+  theme: dark
+
