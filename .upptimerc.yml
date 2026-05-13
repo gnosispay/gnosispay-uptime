@@ -36,7 +36,7 @@ sites:
 
 notifications:
   - type: slack
-    webhook: $SLACK_WEBHOOK_URL
+    channel: C0916AQ20PK
 
 status-website:
   baseUrl: /gnosispay-uptime
