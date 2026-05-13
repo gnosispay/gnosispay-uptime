@@ -36,7 +36,6 @@ sites:
 
 notifications:
   - type: slack
-    channel: C0916AQ20PK
 
 status-website:
   baseUrl: /gnosispay-uptime
