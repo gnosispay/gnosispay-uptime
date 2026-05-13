@@ -41,16 +41,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/api.dev.gnosispay.com.ico",
     "slug": "gnosis-pay-api-dev",
     "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
+    "uptime": "63.03%",
+    "uptimeDay": "63.03%",
+    "uptimeWeek": "63.03%",
+    "uptimeMonth": "63.03%",
+    "uptimeYear": "63.03%",
     "time": 0,
     "timeDay": 0,
     "timeWeek": 0,
     "timeMonth": 0,
     "timeYear": 0,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2026-05-13": 0
+    }
   }
 ]
