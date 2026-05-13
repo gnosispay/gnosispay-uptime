@@ -10,11 +10,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 202,
-    "timeDay": 202,
-    "timeWeek": 202,
-    "timeMonth": 202,
-    "timeYear": 202,
+    "time": 200,
+    "timeDay": 200,
+    "timeWeek": 200,
+    "timeMonth": 200,
+    "timeYear": 200,
     "dailyMinutesDown": {}
   },
   {
@@ -28,11 +28,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 431,
-    "timeDay": 431,
-    "timeWeek": 431,
-    "timeMonth": 431,
-    "timeYear": 431,
+    "time": 430,
+    "timeDay": 430,
+    "timeWeek": 430,
+    "timeMonth": 430,
+    "timeYear": 430,
     "dailyMinutesDown": {}
   },
   {
@@ -41,18 +41,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/api.dev.gnosispay.com.ico",
     "slug": "gnosis-pay-api-dev",
     "status": "down",
-    "uptime": "4.70%",
-    "uptimeDay": "4.70%",
-    "uptimeWeek": "4.70%",
-    "uptimeMonth": "4.70%",
-    "uptimeYear": "4.70%",
+    "uptime": "1.41%",
+    "uptimeDay": "1.41%",
+    "uptimeWeek": "1.41%",
+    "uptimeMonth": "1.41%",
+    "uptimeYear": "1.41%",
     "time": 0,
     "timeDay": 0,
     "timeWeek": 0,
     "timeMonth": 0,
     "timeYear": 0,
     "dailyMinutesDown": {
-      "2026-05-13": 7
+      "2026-05-13": 24
     }
   }
 ]
