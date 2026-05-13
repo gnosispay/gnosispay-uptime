@@ -36,7 +36,7 @@ sites:
 
 notifications:
   - type: slack
-    webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+    webhook: $SLACK_WEBHOOK_URL
 
 status-website:
   baseUrl: /gnosispay-uptime
