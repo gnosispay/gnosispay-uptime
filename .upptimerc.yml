@@ -34,9 +34,6 @@ sites:
   #     }
   
 
-notifications:
-  - type: slack
-
 status-website:
   baseUrl: /gnosispay-uptime
   name: GnosisPay
