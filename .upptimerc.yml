@@ -6,8 +6,8 @@ sites:
     url: https://gnosispay.com/
   - name: "GnosisPay API"
     url: https://api.gnosispay.com/health
-  # - name: "GnosisPay API - DEV"
-  #   url: https://api.dev.gnosispay.com/health
+  - name: "GnosisPay API - DEV"
+    url: https://api.dev.gnosispay.com/health
   # - name: "GnosisPay Testnet RPC"
   #   method: POST
   #   url: https://rpc.dev.gnosispay.network
@@ -33,6 +33,10 @@ sites:
   #       "jsonrpc":"2.0"
   #     }
   
+
+notifications:
+  - type: slack
+    webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
 
 status-website:
   baseUrl: /gnosispay-uptime
