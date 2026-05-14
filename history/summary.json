@@ -10,11 +10,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 204,
-    "timeDay": 204,
-    "timeWeek": 204,
-    "timeMonth": 204,
-    "timeYear": 204,
+    "time": 203,
+    "timeDay": 203,
+    "timeWeek": 203,
+    "timeMonth": 203,
+    "timeYear": 203,
     "dailyMinutesDown": {}
   },
   {
@@ -28,52 +28,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 422,
-    "timeDay": 422,
-    "timeWeek": 422,
-    "timeMonth": 422,
-    "timeYear": 422,
+    "time": 429,
+    "timeDay": 429,
+    "timeWeek": 429,
+    "timeMonth": 429,
+    "timeYear": 429,
     "dailyMinutesDown": {}
-  },
-  {
-    "name": "GnosisPay API - DEV",
-    "url": "https://api.dev.gnosispay.com/health",
-    "icon": "https://icons.duckduckgo.com/ip3/api.dev.gnosispay.com.ico",
-    "slug": "gnosis-pay-api-dev",
-    "status": "down",
-    "uptime": "0.04%",
-    "uptimeDay": "0.04%",
-    "uptimeWeek": "0.04%",
-    "uptimeMonth": "0.04%",
-    "uptimeYear": "0.04%",
-    "time": 0,
-    "timeDay": 0,
-    "timeWeek": 0,
-    "timeMonth": 0,
-    "timeYear": 0,
-    "dailyMinutesDown": {
-      "2026-05-14": 461,
-      "2026-05-13": 505
-    }
-  },
-  {
-    "name": "Slack Alert Test",
-    "url": "https://example.invalid",
-    "icon": "https://icons.duckduckgo.com/ip3/example.invalid.ico",
-    "slug": "slack-alert-test",
-    "status": "down",
-    "uptime": "70.32%",
-    "uptimeDay": "70.32%",
-    "uptimeWeek": "70.32%",
-    "uptimeMonth": "70.32%",
-    "uptimeYear": "70.32%",
-    "time": 0,
-    "timeDay": 0,
-    "timeWeek": 0,
-    "timeMonth": 0,
-    "timeYear": 0,
-    "dailyMinutesDown": {
-      "2026-05-14": 0
-    }
   }
 ]
