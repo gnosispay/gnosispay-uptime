@@ -8,6 +8,8 @@ sites:
     url: https://api.gnosispay.com/health
   - name: "GnosisPay API - DEV"
     url: https://api.dev.gnosispay.com/health
+  - name: Slack Alert Test
+    url: https://example.invalid
   # - name: "GnosisPay Testnet RPC"
   #   method: POST
   #   url: https://rpc.dev.gnosispay.network
