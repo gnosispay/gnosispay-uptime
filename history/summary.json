@@ -28,11 +28,31 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 429,
-    "timeDay": 429,
-    "timeWeek": 429,
-    "timeMonth": 429,
-    "timeYear": 429,
+    "time": 423,
+    "timeDay": 423,
+    "timeWeek": 423,
+    "timeMonth": 423,
+    "timeYear": 423,
     "dailyMinutesDown": {}
+  },
+  {
+    "name": "Slack Alert Test with new app",
+    "url": "https://upptime-test.invalid",
+    "icon": "https://icons.duckduckgo.com/ip3/upptime-test.invalid.ico",
+    "slug": "slack-alert-test-with-new-app",
+    "status": "down",
+    "uptime": "80.36%",
+    "uptimeDay": "80.36%",
+    "uptimeWeek": "80.36%",
+    "uptimeMonth": "80.36%",
+    "uptimeYear": "80.36%",
+    "time": 0,
+    "timeDay": 0,
+    "timeWeek": 0,
+    "timeMonth": 0,
+    "timeYear": 0,
+    "dailyMinutesDown": {
+      "2026-05-14": 0
+    }
   }
 ]
