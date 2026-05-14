@@ -6,8 +6,6 @@ sites:
     url: https://gnosispay.com/
   - name: "GnosisPay API"
     url: https://api.gnosispay.com/health
-  - name: Slack Alert Test with new app
-    url: https://upptime-test.invalid
   # - name: "GnosisPay Testnet RPC"
   #   method: POST
   #   url: https://rpc.dev.gnosispay.network
@@ -35,9 +33,9 @@ sites:
   
 
 status-website:
-  baseUrl: /gnosispay-uptime
   name: GnosisPay
   introTitle: "**GnosisPay**"
   introMessage: Check the availability for GnosisPay services
+  cname: status.gnosispay.com
   theme: dark
 
