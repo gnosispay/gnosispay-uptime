@@ -1,0 +1,44 @@
+name: Maintenance Notification
+
+on:
+  issues:
+    types: [labeled, closed]
+
+jobs:
+  notify-start:
+    name: Send Slack alert - maintenance started
+    runs-on: ubuntu-latest
+    if: github.event.action == 'labeled' && github.event.label.name == 'maintenance'
+    steps:
+      - name: Send Slack alert
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data "$(jq -n \
+              --arg title "$ISSUE_TITLE" \
+              --arg url "$ISSUE_URL" \
+              --arg body "$ISSUE_BODY" \
+              '{text: "🔧 *Scheduled Maintenance Started*\n*\($title)*\n\($body)\n<\($url)|View Details>"}')" \
+            "$SLACK_WEBHOOK_URL"
+
+  notify-end:
+    name: Send Slack alert - maintenance ended
+    runs-on: ubuntu-latest
+    if: github.event.action == 'closed' && contains(github.event.issue.labels.*.name, 'maintenance')
+    steps:
+      - name: Send Slack alert
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data "$(jq -n \
+              --arg title "$ISSUE_TITLE" \
+              --arg url "$ISSUE_URL" \
+              '{text: "✅ *Scheduled Maintenance Ended*\n*\($title)*\n<\($url)|View Details>"}')" \
+            "$SLACK_WEBHOOK_URL"
