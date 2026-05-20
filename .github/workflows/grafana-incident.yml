@@ -1,0 +1,120 @@
+name: Grafana Incident to Upptime
+
+on:
+  repository_dispatch:
+    types:
+      - grafana_incident
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  create-or-update-incident:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create or update incident issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const payload = context.payload.client_payload || {};
+
+            const status = payload.status || "firing";
+            const severity = payload.severity || "P1";
+            const alert = payload.alert || "Grafana Alert";
+            const service = payload.service || "unknown-service";
+            const metric = payload.metric || "unknown";
+            const threshold = payload.threshold || "unknown";
+            const window = payload.window || "unknown";
+            const description = payload.description || "";
+            const grafanaUrl = payload.grafana_url || "";
+
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            const title = `${severity} Incident: ${alert} [${service}]`;
+
+            const body = `
+            ## ${severity} Incident
+
+            **Source:** Grafana  
+            **Status:** ${status}  
+            **Alert:** ${alert}  
+            **Service:** ${service}  
+            **Metric:** ${metric}  
+            **Threshold:** ${threshold}  
+            **Window:** ${window}  
+
+            ## Description
+
+            ${description}
+
+            ${grafanaUrl ? `## Grafana\n${grafanaUrl}` : ""}
+            `;
+
+            const labels = ["incident", "grafana", severity, service];
+
+            // Search for existing open incident for same alert/service
+            const searchQuery = `repo:${owner}/${repo} is:issue is:open in:title "${alert}" "${service}" label:grafana`;
+
+            const existing = await github.rest.search.issuesAndPullRequests({
+              q: searchQuery
+            });
+
+            if (status === "resolved" || status === "ok") {
+              if (existing.data.items.length > 0) {
+                const issue = existing.data.items[0];
+
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: issue.number,
+                  body: `✅ Grafana alert resolved for **${alert}** / **${service}**.`
+                });
+
+                await github.rest.issues.addLabels({
+                  owner,
+                  repo,
+                  issue_number: issue.number,
+                  labels: ["resolved"]
+                });
+
+                await github.rest.issues.update({
+                  owner,
+                  repo,
+                  issue_number: issue.number,
+                  state: "closed"
+                });
+              }
+
+              return;
+            }
+
+            if (existing.data.items.length > 0) {
+              const issue = existing.data.items[0];
+
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: issue.number,
+                body: `🚨 Grafana alert is still firing.\n\n${body}`
+              });
+
+              await github.rest.issues.addLabels({
+                owner,
+                repo,
+                issue_number: issue.number,
+                labels
+              });
+
+              return;
+            }
+
+            await github.rest.issues.create({
+              owner,
+              repo,
+              title,
+              body,
+              labels
+            });
