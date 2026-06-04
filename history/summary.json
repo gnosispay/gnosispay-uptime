@@ -24,10 +24,10 @@
     "slug": "gnosis-pay-api",
     "status": "down",
     "uptime": "99.96%",
-    "uptimeDay": "73.23%",
-    "uptimeWeek": "95.09%",
-    "uptimeMonth": "98.87%",
-    "uptimeYear": "99.91%",
+    "uptimeDay": "73.22%",
+    "uptimeWeek": "94.95%",
+    "uptimeMonth": "98.84%",
+    "uptimeYear": "99.90%",
     "time": 417,
     "timeDay": 451,
     "timeWeek": 428,
@@ -35,7 +35,8 @@
     "timeYear": 417,
     "dailyMinutesDown": {
       "2026-06-02": 82,
-      "2026-06-03": 414
+      "2026-06-03": 414,
+      "2026-06-04": 14
     }
   }
 ]
