@@ -22,21 +22,21 @@
     "url": "https://api.gnosispay.com/health",
     "icon": "https://icons.duckduckgo.com/ip3/api.gnosispay.com.ico",
     "slug": "gnosis-pay-api",
-    "status": "down",
+    "status": "up",
     "uptime": "99.96%",
-    "uptimeDay": "73.22%",
-    "uptimeWeek": "94.95%",
-    "uptimeMonth": "98.84%",
-    "uptimeYear": "99.90%",
-    "time": 417,
-    "timeDay": 451,
-    "timeWeek": 428,
-    "timeMonth": 417,
-    "timeYear": 417,
+    "uptimeDay": "72.81%",
+    "uptimeWeek": "94.38%",
+    "uptimeMonth": "98.71%",
+    "uptimeYear": "99.89%",
+    "time": 415,
+    "timeDay": 426,
+    "timeWeek": 422,
+    "timeMonth": 415,
+    "timeYear": 415,
     "dailyMinutesDown": {
       "2026-06-02": 82,
       "2026-06-03": 414,
-      "2026-06-04": 14
+      "2026-06-04": 72
     }
   }
 ]
