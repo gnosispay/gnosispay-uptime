@@ -1,7 +1,7 @@
 url: https://api.gnosispay.com/health
-status: up
-code: 200
-responseTime: 335
-lastUpdated: 2026-06-04T14:17:50.531Z
+status: down
+code: 403
+responseTime: 359
+lastUpdated: 2026-06-04T18:04:19.091Z
 startTime: 2023-10-31T10:00:28.054Z
 generator: Upptime <https://github.com/upptime/upptime>
