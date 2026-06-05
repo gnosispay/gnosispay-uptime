@@ -7,7 +7,7 @@ sites:
   - name: "GnosisPay API"
     url: https://api.gnosispay.com/health
     headers:
-      - "x-synthetic-token: ${{ secrets.SYNTHETIC_TOKEN }}"
+      - "x-synthetic-token: $SYNTHETIC_TOKEN"
   # - name: "GnosisPay Testnet RPC"
   #   method: POST
   #   url: https://rpc.dev.gnosispay.network
