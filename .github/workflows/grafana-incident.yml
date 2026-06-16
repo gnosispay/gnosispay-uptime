@@ -65,10 +65,13 @@ jobs:
             ${grafanaUrl ? `## Grafana\n${grafanaUrl}` : ""}
             `;
 
-            const labels = [upptimeStatusLabel, "incident", "grafana", severity, service];
+            // Upptime status page needs the "status" label.
+            // P0 issue labels: status, down, incident, grafana, P0, service
+            // P1 issue labels: status, degraded, incident, grafana, P1, service
+            const labels = ["status", upptimeStatusLabel, "incident", "grafana", severity, service];
 
-            // Search for existing open Grafana incident for same alert/service
-            // Searching body + title because title may be "core-api is down" or "core-api has degraded performance"
+            // Search for existing open Grafana incident for same alert/service.
+            // This allows resolved webhook to find and close the right issue.
             const searchQuery = `repo:${owner}/${repo} is:issue is:open label:grafana "${alert}" "${service}"`;
 
             const existing = await github.rest.search.issuesAndPullRequests({
