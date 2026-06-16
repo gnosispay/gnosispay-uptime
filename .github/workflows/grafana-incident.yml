@@ -33,7 +33,19 @@ jobs:
             const owner = context.repo.owner;
             const repo = context.repo.repo;
 
-            const title = `${severity} Incident: ${alert} [${service}]`;
+            // P0 = down, P1 = degraded
+            let upptimeStatusLabel = "degraded";
+            let title = `${service} has degraded performance`;
+
+            if (severity === "P0") {
+              upptimeStatusLabel = "down";
+              title = `${service} is down`;
+            }
+
+            if (severity === "P1") {
+              upptimeStatusLabel = "degraded";
+              title = `${service} has degraded performance`;
+            }
 
             const body = `
             ## ${severity} Incident
@@ -53,10 +65,11 @@ jobs:
             ${grafanaUrl ? `## Grafana\n${grafanaUrl}` : ""}
             `;
 
-            const labels = ["incident", "grafana", severity, service];
+            const labels = [upptimeStatusLabel, "incident", "grafana", severity, service];
 
-            // Search for existing open incident for same alert/service
-            const searchQuery = `repo:${owner}/${repo} is:issue is:open in:title "${alert}" "${service}" label:grafana`;
+            // Search for existing open Grafana incident for same alert/service
+            // Searching body + title because title may be "core-api is down" or "core-api has degraded performance"
+            const searchQuery = `repo:${owner}/${repo} is:issue is:open label:grafana "${alert}" "${service}"`;
 
             const existing = await github.rest.search.issuesAndPullRequests({
               q: searchQuery
