@@ -24,9 +24,6 @@ jobs:
             const severity = payload.severity || "P1";
             const alert = payload.alert || "Grafana Alert";
             const service = payload.service || "unknown-service";
-            const metric = payload.metric || "unknown";
-            const threshold = payload.threshold || "unknown";
-            const window = payload.window || "unknown";
             const description = payload.description || "";
             const grafanaUrl = payload.grafana_url || "";
 
@@ -54,9 +51,6 @@ jobs:
             **Status:** ${status}  
             **Alert:** ${alert}  
             **Service:** ${service}  
-            **Metric:** ${metric}  
-            **Threshold:** ${threshold}  
-            **Window:** ${window}  
 
             ## Description
 
