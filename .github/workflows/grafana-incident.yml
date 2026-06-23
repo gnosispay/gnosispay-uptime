@@ -9,6 +9,10 @@ permissions:
   issues: write
   contents: read
 
+concurrency:
+  group: grafana-incident-${{ github.event.client_payload.alert || 'default' }}
+  cancel-in-progress: false
+
 jobs:
   create-or-update-incident:
     runs-on: ubuntu-latest
@@ -20,17 +24,20 @@ jobs:
           script: |
             const payload = context.payload.client_payload || {};
 
-            const status = payload.status || "firing";
-            const severity = payload.severity || "P1";
-            const alert = payload.alert || "Grafana Alert";
-            const service = payload.service || "unknown-service";
-            const description = payload.description || "";
-            const grafanaUrl = payload.grafana_url || "";
+            const sanitizeLabel = s => String(s).replace(/[^a-z0-9-]/gi, '-').toLowerCase().slice(0, 50);
+            const sanitizeSearch = s => String(s).replace(/"/g, '').trim().slice(0, 100);
+
+            const VALID_SEVERITIES = new Set(["P0", "P1"]);
+
+            const status      = payload.status   || "firing";
+            const severity    = VALID_SEVERITIES.has(payload.severity) ? payload.severity : "P1";
+            const alert       = sanitizeSearch(payload.alert   || "Grafana Alert");
+            const service     = sanitizeLabel(payload.service  || "unknown-service");
+            const description = sanitizeSearch(payload.description || "");
 
             const owner = context.repo.owner;
             const repo = context.repo.repo;
 
-            // P0 = down, P1 = degraded
             let upptimeStatusLabel = "degraded";
             let title = `${service} has degraded performance`;
 
@@ -47,10 +54,10 @@ jobs:
             const body = `
             ## ${severity} Incident
 
-            **Source:** Grafana  
-            **Status:** ${status}  
-            **Alert:** ${alert}  
-            **Service:** ${service}  
+            **Source:** Grafana
+            **Status:** ${status}
+            **Alert:** ${alert}
+            **Service:** ${service}
 
             ## Description
 
@@ -61,13 +68,8 @@ jobs:
             We are investigating this incident.
             `;
 
-            // Upptime status page needs the "status" label.
-            // P0 issue labels: status, down, incident, grafana, P0, service
-            // P1 issue labels: status, degraded, incident, grafana, P1, service
             const labels = ["status", upptimeStatusLabel, "incident", "grafana", severity, service];
 
-            // Search for existing open Grafana incident for same alert/service.
-            // This allows resolved webhook to find and close the right issue.
             const searchQuery = `repo:${owner}/${repo} is:issue is:open label:grafana "${alert}" "${service}"`;
 
             const existing = await github.rest.search.issuesAndPullRequests({
