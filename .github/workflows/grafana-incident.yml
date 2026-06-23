@@ -56,7 +56,9 @@ jobs:
 
             ${description}
 
-            ${grafanaUrl ? `## Grafana\n${grafanaUrl}` : ""}
+            ## Updates
+
+            We are investigating this incident.
             `;
 
             // Upptime status page needs the "status" label.
