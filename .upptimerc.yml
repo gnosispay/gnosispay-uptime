@@ -5,7 +5,7 @@ sites:
   - name: "GnosisPay"
     url: https://gnosispay.com/
   - name: "GnosisPay API"
-    url: https://api.gnosispay.com/health
+    url: https://core.prod.gnosispay.com/user-api/health
     headers:
       - "x-synthetic-token: $SYNTHETIC_TOKEN"
   # - name: "GnosisPay Testnet RPC"

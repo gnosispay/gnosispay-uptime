@@ -19,8 +19,8 @@
   },
   {
     "name": "GnosisPay API",
-    "url": "https://api.gnosispay.com/health",
-    "icon": "https://icons.duckduckgo.com/ip3/api.gnosispay.com.ico",
+    "url": "https://core.prod.gnosispay.com/user-api/health",
+    "icon": "https://icons.duckduckgo.com/ip3/core.prod.gnosispay.com.ico",
     "slug": "gnosis-pay-api",
     "status": "up",
     "uptime": "99.93%",
